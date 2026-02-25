@@ -1,0 +1,2914 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a6d73f2d90068cd37fd5e3dd41129963 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+        <h3 align="center" style="font-size:16px"><b>台灣即時空氣品質指標 (AQI) 地圖</b></h3>
+        <div align="center" style="font-size:12px; margin: 10px;">
+            <span style="color: green;">●</span> 良好 (0-50)　
+            <span style="color: orange;">●</span> 普通 (51-100)　
+            <span style="color: red;">●</span> 不健康 (101+)
+        </div>
+        
+    
+            <div class="folium-map" id="map_a6d73f2d90068cd37fd5e3dd41129963" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a6d73f2d90068cd37fd5e3dd41129963 = L.map(
+                "map_a6d73f2d90068cd37fd5e3dd41129963",
+                {
+                    center: [23.8, 120.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a9d43fecd14494377c72ea68e745fb63 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a9d43fecd14494377c72ea68e745fb63.addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+            var circle_marker_d8b9f54185517ecc26faf618cd603816 = L.circleMarker(
+                [25.129167, 121.760056],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_17afa9dfbb315744ce57210bf7d6ed86 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1cf40efa4ad3dd66517a7734c17dd330 = $(`<div id="html_1cf40efa4ad3dd66517a7734c17dd330" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">基隆</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>基隆市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">36</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_17afa9dfbb315744ce57210bf7d6ed86.setContent(html_1cf40efa4ad3dd66517a7734c17dd330);
+            
+        
+
+        circle_marker_d8b9f54185517ecc26faf618cd603816.bindPopup(popup_17afa9dfbb315744ce57210bf7d6ed86)
+        ;
+
+        
+    
+    
+            circle_marker_d8b9f54185517ecc26faf618cd603816.bindTooltip(
+                `<div>
+                     基隆 - AQI: 36
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b20ffd958e8055b3895efcf22f742d52 = L.circleMarker(
+                [25.06624, 121.64081],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7e4c97b6c7c3139ffb5157774a8a92dd = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_906ab28d11bdaa5e47d600c0cb0d419b = $(`<div id="html_906ab28d11bdaa5e47d600c0cb0d419b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">汐止</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7e4c97b6c7c3139ffb5157774a8a92dd.setContent(html_906ab28d11bdaa5e47d600c0cb0d419b);
+            
+        
+
+        circle_marker_b20ffd958e8055b3895efcf22f742d52.bindPopup(popup_7e4c97b6c7c3139ffb5157774a8a92dd)
+        ;
+
+        
+    
+    
+            circle_marker_b20ffd958e8055b3895efcf22f742d52.bindTooltip(
+                `<div>
+                     汐止 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6eef7f9acbc9746f576407c621607db = L.circleMarker(
+                [24.977222, 121.537778],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_0d4dab59b4d91d0836676f29a31cf398 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9405cf1bfa111efd1ac4e2e8b476fb0d = $(`<div id="html_9405cf1bfa111efd1ac4e2e8b476fb0d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新店</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">35</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_0d4dab59b4d91d0836676f29a31cf398.setContent(html_9405cf1bfa111efd1ac4e2e8b476fb0d);
+            
+        
+
+        circle_marker_e6eef7f9acbc9746f576407c621607db.bindPopup(popup_0d4dab59b4d91d0836676f29a31cf398)
+        ;
+
+        
+    
+    
+            circle_marker_e6eef7f9acbc9746f576407c621607db.bindTooltip(
+                `<div>
+                     新店 - AQI: 35
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa1096fb517c7dc06aebc6629bc647ff = L.circleMarker(
+                [24.982528, 121.451861],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_e2371023b6ec3854073793fc0197c44c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b31b5e095850e906604fb924bca0ef85 = $(`<div id="html_b31b5e095850e906604fb924bca0ef85" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">土城</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_e2371023b6ec3854073793fc0197c44c.setContent(html_b31b5e095850e906604fb924bca0ef85);
+            
+        
+
+        circle_marker_fa1096fb517c7dc06aebc6629bc647ff.bindPopup(popup_e2371023b6ec3854073793fc0197c44c)
+        ;
+
+        
+    
+    
+            circle_marker_fa1096fb517c7dc06aebc6629bc647ff.bindTooltip(
+                `<div>
+                     土城 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_94fda9c7f991d730a23bc0e412da1bb0 = L.circleMarker(
+                [25.012972, 121.458667],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b08f7cceecf2985ef9baa2d7eba2469d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ac7125bd1add0c0369a1937838eb8194 = $(`<div id="html_ac7125bd1add0c0369a1937838eb8194" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">板橋</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b08f7cceecf2985ef9baa2d7eba2469d.setContent(html_ac7125bd1add0c0369a1937838eb8194);
+            
+        
+
+        circle_marker_94fda9c7f991d730a23bc0e412da1bb0.bindPopup(popup_b08f7cceecf2985ef9baa2d7eba2469d)
+        ;
+
+        
+    
+    
+            circle_marker_94fda9c7f991d730a23bc0e412da1bb0.bindTooltip(
+                `<div>
+                     板橋 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30b6e927334dbd6de7a91b8c6a5edfb7 = L.circleMarker(
+                [25.037972, 121.4325],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_6290052dd78fcfd61c3d3e35af1da4e0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1f79df80ff8bf567038da1d657231587 = $(`<div id="html_1f79df80ff8bf567038da1d657231587" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新莊</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">34</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_6290052dd78fcfd61c3d3e35af1da4e0.setContent(html_1f79df80ff8bf567038da1d657231587);
+            
+        
+
+        circle_marker_30b6e927334dbd6de7a91b8c6a5edfb7.bindPopup(popup_6290052dd78fcfd61c3d3e35af1da4e0)
+        ;
+
+        
+    
+    
+            circle_marker_30b6e927334dbd6de7a91b8c6a5edfb7.bindTooltip(
+                `<div>
+                     新莊 - AQI: 34
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb7a9fc85c7be7988295ec53c41dba2e = L.circleMarker(
+                [25.06895, 121.481028],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_3a4ea5554e009c4028eaedf71bb49d32 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17b243548b214a6e0f57deaea98b95ad = $(`<div id="html_17b243548b214a6e0f57deaea98b95ad" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">菜寮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">34</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_3a4ea5554e009c4028eaedf71bb49d32.setContent(html_17b243548b214a6e0f57deaea98b95ad);
+            
+        
+
+        circle_marker_cb7a9fc85c7be7988295ec53c41dba2e.bindPopup(popup_3a4ea5554e009c4028eaedf71bb49d32)
+        ;
+
+        
+    
+    
+            circle_marker_cb7a9fc85c7be7988295ec53c41dba2e.bindTooltip(
+                `<div>
+                     菜寮 - AQI: 34
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_345a33eee51d201b9630552a4a543258 = L.circleMarker(
+                [25.07798949, 121.36548982],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_ac56e8057f56d1840019834fcf03e7c6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_95e7d2759ba651899b539e885b485893 = $(`<div id="html_95e7d2759ba651899b539e885b485893" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">林口</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">29</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_ac56e8057f56d1840019834fcf03e7c6.setContent(html_95e7d2759ba651899b539e885b485893);
+            
+        
+
+        circle_marker_345a33eee51d201b9630552a4a543258.bindPopup(popup_ac56e8057f56d1840019834fcf03e7c6)
+        ;
+
+        
+    
+    
+            circle_marker_345a33eee51d201b9630552a4a543258.bindTooltip(
+                `<div>
+                     林口 - AQI: 29
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_133748829bcfc3e936676fb7f7afaad4 = L.circleMarker(
+                [25.1645, 121.449239],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_640e73eefefa91b5641683382035c762 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c030c67569e1b301e05d8021145184f3 = $(`<div id="html_c030c67569e1b301e05d8021145184f3" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">淡水</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_640e73eefefa91b5641683382035c762.setContent(html_c030c67569e1b301e05d8021145184f3);
+            
+        
+
+        circle_marker_133748829bcfc3e936676fb7f7afaad4.bindPopup(popup_640e73eefefa91b5641683382035c762)
+        ;
+
+        
+    
+    
+            circle_marker_133748829bcfc3e936676fb7f7afaad4.bindTooltip(
+                `<div>
+                     淡水 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33703e93ba5fdb429a51985fe0e72fda = L.circleMarker(
+                [25.10334003, 121.51666356],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b47056b5ac2d10204cee4e0ccdca38f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fea704378707975d13f162eff075705c = $(`<div id="html_fea704378707975d13f162eff075705c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">士林</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">27</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b47056b5ac2d10204cee4e0ccdca38f9.setContent(html_fea704378707975d13f162eff075705c);
+            
+        
+
+        circle_marker_33703e93ba5fdb429a51985fe0e72fda.bindPopup(popup_b47056b5ac2d10204cee4e0ccdca38f9)
+        ;
+
+        
+    
+    
+            circle_marker_33703e93ba5fdb429a51985fe0e72fda.bindTooltip(
+                `<div>
+                     士林 - AQI: 27
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3788e2932a16635a4b79b479c11f46a9 = L.circleMarker(
+                [25.062361, 121.526528],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_f080aed2076a484d619f52ca570cafcc = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8893b06e45d310c1cb00d2678af0694b = $(`<div id="html_8893b06e45d310c1cb00d2678af0694b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">中山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">36</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_f080aed2076a484d619f52ca570cafcc.setContent(html_8893b06e45d310c1cb00d2678af0694b);
+            
+        
+
+        circle_marker_3788e2932a16635a4b79b479c11f46a9.bindPopup(popup_f080aed2076a484d619f52ca570cafcc)
+        ;
+
+        
+    
+    
+            circle_marker_3788e2932a16635a4b79b479c11f46a9.bindTooltip(
+                `<div>
+                     中山 - AQI: 36
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b31a4edacefba5a7b08891befac7bac2 = L.circleMarker(
+                [25.046503, 121.507972],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_9c37a57b8f635e953f24ae9743647eae = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6c1dc7f3e937666085fe38b5198cc1fa = $(`<div id="html_6c1dc7f3e937666085fe38b5198cc1fa" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">萬華</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_9c37a57b8f635e953f24ae9743647eae.setContent(html_6c1dc7f3e937666085fe38b5198cc1fa);
+            
+        
+
+        circle_marker_b31a4edacefba5a7b08891befac7bac2.bindPopup(popup_9c37a57b8f635e953f24ae9743647eae)
+        ;
+
+        
+    
+    
+            circle_marker_b31a4edacefba5a7b08891befac7bac2.bindTooltip(
+                `<div>
+                     萬華 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bbc39a56367e544d67b2c5228d51da3 = L.circleMarker(
+                [25.020608, 121.529556],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b2c6f0bea8b7268361286067ba5efa26 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_50f53335e0db421e45b5259f5394ba67 = $(`<div id="html_50f53335e0db421e45b5259f5394ba67" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">古亭</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b2c6f0bea8b7268361286067ba5efa26.setContent(html_50f53335e0db421e45b5259f5394ba67);
+            
+        
+
+        circle_marker_2bbc39a56367e544d67b2c5228d51da3.bindPopup(popup_b2c6f0bea8b7268361286067ba5efa26)
+        ;
+
+        
+    
+    
+            circle_marker_2bbc39a56367e544d67b2c5228d51da3.bindTooltip(
+                `<div>
+                     古亭 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f5deab7a7120d84344b3e3f2b549002 = L.circleMarker(
+                [25.05, 121.578611],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_d5846c23c3d8583b84532b3e4be86837 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b8d56369f568096bcec8095a148dd477 = $(`<div id="html_b8d56369f568096bcec8095a148dd477" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">松山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">36</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_d5846c23c3d8583b84532b3e4be86837.setContent(html_b8d56369f568096bcec8095a148dd477);
+            
+        
+
+        circle_marker_5f5deab7a7120d84344b3e3f2b549002.bindPopup(popup_d5846c23c3d8583b84532b3e4be86837)
+        ;
+
+        
+    
+    
+            circle_marker_5f5deab7a7120d84344b3e3f2b549002.bindTooltip(
+                `<div>
+                     松山 - AQI: 36
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ceb1510cf1e9e1ed42d321fc6c8b16a = L.circleMarker(
+                [25.06331455, 121.51342074],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_03ab35797a3c55470eb9dfa3150ba8fb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5a92a8e5232f5cee67781f61931aa393 = $(`<div id="html_5a92a8e5232f5cee67781f61931aa393" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">大同</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">52</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_03ab35797a3c55470eb9dfa3150ba8fb.setContent(html_5a92a8e5232f5cee67781f61931aa393);
+            
+        
+
+        circle_marker_6ceb1510cf1e9e1ed42d321fc6c8b16a.bindPopup(popup_03ab35797a3c55470eb9dfa3150ba8fb)
+        ;
+
+        
+    
+    
+            circle_marker_6ceb1510cf1e9e1ed42d321fc6c8b16a.bindTooltip(
+                `<div>
+                     大同 - AQI: 52
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a289babf4101f02d8e2c1b395b53ecb = L.circleMarker(
+                [24.9947107, 121.30500531],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_08b05b14182bef25867c0f8a5863a1d4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_da0503c8640d153833ab5c8404f98c33 = $(`<div id="html_da0503c8640d153833ab5c8404f98c33" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">桃園</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">41</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_08b05b14182bef25867c0f8a5863a1d4.setContent(html_da0503c8640d153833ab5c8404f98c33);
+            
+        
+
+        circle_marker_1a289babf4101f02d8e2c1b395b53ecb.bindPopup(popup_08b05b14182bef25867c0f8a5863a1d4)
+        ;
+
+        
+    
+    
+            circle_marker_1a289babf4101f02d8e2c1b395b53ecb.bindTooltip(
+                `<div>
+                     桃園 - AQI: 41
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a36584a00b3eab9dee3225423de5f3bc = L.circleMarker(
+                [25.06100357, 121.20251473],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b6893e5bc7db454218a89d1cb76b8bea = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d41b108b2194976a145e8dbfeafa3f2d = $(`<div id="html_d41b108b2194976a145e8dbfeafa3f2d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">大園</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">50</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b6893e5bc7db454218a89d1cb76b8bea.setContent(html_d41b108b2194976a145e8dbfeafa3f2d);
+            
+        
+
+        circle_marker_a36584a00b3eab9dee3225423de5f3bc.bindPopup(popup_b6893e5bc7db454218a89d1cb76b8bea)
+        ;
+
+        
+    
+    
+            circle_marker_a36584a00b3eab9dee3225423de5f3bc.bindTooltip(
+                `<div>
+                     大園 - AQI: 50
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_647587903ce0272a0af3df950ef90046 = L.circleMarker(
+                [25.03556747, 121.08283092],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b4741f3b052613b011736b4a90fb8fd6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6d4621f5f673cfe0f9cf142980077d24 = $(`<div id="html_6d4621f5f673cfe0f9cf142980077d24" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">觀音</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">32</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b4741f3b052613b011736b4a90fb8fd6.setContent(html_6d4621f5f673cfe0f9cf142980077d24);
+            
+        
+
+        circle_marker_647587903ce0272a0af3df950ef90046.bindPopup(popup_b4741f3b052613b011736b4a90fb8fd6)
+        ;
+
+        
+    
+    
+            circle_marker_647587903ce0272a0af3df950ef90046.bindTooltip(
+                `<div>
+                     觀音 - AQI: 32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e161ecc2d646f4ed902774dc70b6ae75 = L.circleMarker(
+                [24.952786, 121.203986],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7420dfb08f85d05b93bfd3f0d103bd7e = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c56998b60aa6fab417fa72f916c1d322 = $(`<div id="html_c56998b60aa6fab417fa72f916c1d322" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">平鎮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">55</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7420dfb08f85d05b93bfd3f0d103bd7e.setContent(html_c56998b60aa6fab417fa72f916c1d322);
+            
+        
+
+        circle_marker_e161ecc2d646f4ed902774dc70b6ae75.bindPopup(popup_7420dfb08f85d05b93bfd3f0d103bd7e)
+        ;
+
+        
+    
+    
+            circle_marker_e161ecc2d646f4ed902774dc70b6ae75.bindTooltip(
+                `<div>
+                     平鎮 - AQI: 55
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_841ce7c9fc3e3b159e5f152ae914fa95 = L.circleMarker(
+                [24.86400048, 121.21645772],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_dcc98b6d618e4de2888e05c3099f68f7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2e6830fcab6576efa66670655043dd72 = $(`<div id="html_2e6830fcab6576efa66670655043dd72" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">龍潭</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">32</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_dcc98b6d618e4de2888e05c3099f68f7.setContent(html_2e6830fcab6576efa66670655043dd72);
+            
+        
+
+        circle_marker_841ce7c9fc3e3b159e5f152ae914fa95.bindPopup(popup_dcc98b6d618e4de2888e05c3099f68f7)
+        ;
+
+        
+    
+    
+            circle_marker_841ce7c9fc3e3b159e5f152ae914fa95.bindTooltip(
+                `<div>
+                     龍潭 - AQI: 32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1465d9d6c86e458a705b9d2f59cec9ea = L.circleMarker(
+                [24.90009696, 121.03886894],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b2c2e6c123597bd5bb4cfaa85f2c6cff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a2f9e9f73dd698abc310eee3c48e6e3a = $(`<div id="html_a2f9e9f73dd698abc310eee3c48e6e3a" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">湖口</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新竹縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b2c2e6c123597bd5bb4cfaa85f2c6cff.setContent(html_a2f9e9f73dd698abc310eee3c48e6e3a);
+            
+        
+
+        circle_marker_1465d9d6c86e458a705b9d2f59cec9ea.bindPopup(popup_b2c2e6c123597bd5bb4cfaa85f2c6cff)
+        ;
+
+        
+    
+    
+            circle_marker_1465d9d6c86e458a705b9d2f59cec9ea.bindTooltip(
+                `<div>
+                     湖口 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_01720b9b381c7e478977ea7fc5b3bdbe = L.circleMarker(
+                [24.74091408, 121.08895493],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_af96a0d831ff030aaf6ad4e2a2808d95 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_50e12a54d190e12d036bb4bfb64710c0 = $(`<div id="html_50e12a54d190e12d036bb4bfb64710c0" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">竹東</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新竹縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">25</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_af96a0d831ff030aaf6ad4e2a2808d95.setContent(html_50e12a54d190e12d036bb4bfb64710c0);
+            
+        
+
+        circle_marker_01720b9b381c7e478977ea7fc5b3bdbe.bindPopup(popup_af96a0d831ff030aaf6ad4e2a2808d95)
+        ;
+
+        
+    
+    
+            circle_marker_01720b9b381c7e478977ea7fc5b3bdbe.bindTooltip(
+                `<div>
+                     竹東 - AQI: 25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0c4f907b8a9cf99919d4fa80eabee621 = L.circleMarker(
+                [24.8056356, 120.97236752],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_db87b62f1e89ec66e013f4e59cdeb98d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5545b6ac4094401fde2d429caf0fbe8d = $(`<div id="html_5545b6ac4094401fde2d429caf0fbe8d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新竹</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新竹市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">29</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_db87b62f1e89ec66e013f4e59cdeb98d.setContent(html_5545b6ac4094401fde2d429caf0fbe8d);
+            
+        
+
+        circle_marker_0c4f907b8a9cf99919d4fa80eabee621.bindPopup(popup_db87b62f1e89ec66e013f4e59cdeb98d)
+        ;
+
+        
+    
+    
+            circle_marker_0c4f907b8a9cf99919d4fa80eabee621.bindTooltip(
+                `<div>
+                     新竹 - AQI: 29
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6729db375a851cb8146e94673186a92f = L.circleMarker(
+                [24.69690679, 120.89869286],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_c8e21dbfe7d604124195fe1add465601 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dc2f59c6dfc20cb98fe491c1c82fa1ae = $(`<div id="html_dc2f59c6dfc20cb98fe491c1c82fa1ae" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">頭份</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>苗栗縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">26</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_c8e21dbfe7d604124195fe1add465601.setContent(html_dc2f59c6dfc20cb98fe491c1c82fa1ae);
+            
+        
+
+        circle_marker_6729db375a851cb8146e94673186a92f.bindPopup(popup_c8e21dbfe7d604124195fe1add465601)
+        ;
+
+        
+    
+    
+            circle_marker_6729db375a851cb8146e94673186a92f.bindTooltip(
+                `<div>
+                     頭份 - AQI: 26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3d59dbc3187bddf2e0d62b0ea2ba610 = L.circleMarker(
+                [24.56499183, 120.82011468],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_52f424724bcd441970e5d7d3b25326a3 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ab3058238d1d7afc86fb3dd8a6160ece = $(`<div id="html_ab3058238d1d7afc86fb3dd8a6160ece" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">苗栗</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>苗栗縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">26</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_52f424724bcd441970e5d7d3b25326a3.setContent(html_ab3058238d1d7afc86fb3dd8a6160ece);
+            
+        
+
+        circle_marker_d3d59dbc3187bddf2e0d62b0ea2ba610.bindPopup(popup_52f424724bcd441970e5d7d3b25326a3)
+        ;
+
+        
+    
+    
+            circle_marker_d3d59dbc3187bddf2e0d62b0ea2ba610.bindTooltip(
+                `<div>
+                     苗栗 - AQI: 26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a714f2238cdf023c3b24c89cf94c58ef = L.circleMarker(
+                [24.38248443, 120.75956754],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_760aed40a473a430610d1c92d5d33969 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f5233061dcabaceb363531c061210c1e = $(`<div id="html_f5233061dcabaceb363531c061210c1e" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">三義</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>苗栗縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">26</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_760aed40a473a430610d1c92d5d33969.setContent(html_f5233061dcabaceb363531c061210c1e);
+            
+        
+
+        circle_marker_a714f2238cdf023c3b24c89cf94c58ef.bindPopup(popup_760aed40a473a430610d1c92d5d33969)
+        ;
+
+        
+    
+    
+            circle_marker_a714f2238cdf023c3b24c89cf94c58ef.bindTooltip(
+                `<div>
+                     三義 - AQI: 26
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51c2f5ba2fe8b0c33476e90e0d369b21 = L.circleMarker(
+                [24.25699731, 120.74252414],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7ae497164696267cdb8a64e4a444e4f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e98ef1dca04684a40a8cee61e75647d8 = $(`<div id="html_e98ef1dca04684a40a8cee61e75647d8" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">豐原</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">42</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7ae497164696267cdb8a64e4a444e4f9.setContent(html_e98ef1dca04684a40a8cee61e75647d8);
+            
+        
+
+        circle_marker_51c2f5ba2fe8b0c33476e90e0d369b21.bindPopup(popup_7ae497164696267cdb8a64e4a444e4f9)
+        ;
+
+        
+    
+    
+            circle_marker_51c2f5ba2fe8b0c33476e90e0d369b21.bindTooltip(
+                `<div>
+                     豐原 - AQI: 42
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14c32a95dc27d86a3d7345e60d5eab75 = L.circleMarker(
+                [24.225628, 120.568794],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_557db7b0ae14f6b1f6d0580bed01ea94 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b9de09a92d3e4271417273d731f8d243 = $(`<div id="html_b9de09a92d3e4271417273d731f8d243" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">沙鹿</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">41</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_557db7b0ae14f6b1f6d0580bed01ea94.setContent(html_b9de09a92d3e4271417273d731f8d243);
+            
+        
+
+        circle_marker_14c32a95dc27d86a3d7345e60d5eab75.bindPopup(popup_557db7b0ae14f6b1f6d0580bed01ea94)
+        ;
+
+        
+    
+    
+            circle_marker_14c32a95dc27d86a3d7345e60d5eab75.bindTooltip(
+                `<div>
+                     沙鹿 - AQI: 41
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b455990eb341270689f0fa10eeb3402 = L.circleMarker(
+                [24.09961111, 120.67844444],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_f714afdba266afcc9bdb07e4fe5111c0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5340c1166d6698ed5591df2dc1a815de = $(`<div id="html_5340c1166d6698ed5591df2dc1a815de" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">大里</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">65</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_f714afdba266afcc9bdb07e4fe5111c0.setContent(html_5340c1166d6698ed5591df2dc1a815de);
+            
+        
+
+        circle_marker_3b455990eb341270689f0fa10eeb3402.bindPopup(popup_f714afdba266afcc9bdb07e4fe5111c0)
+        ;
+
+        
+    
+    
+            circle_marker_3b455990eb341270689f0fa10eeb3402.bindTooltip(
+                `<div>
+                     大里 - AQI: 65
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c750909aaf303dfc2bfdeb9bbc16beb5 = L.circleMarker(
+                [24.151958, 120.641092],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_a5ec2a13edca463faf0aa919ac2711d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_68c8acb9c5f6eed393783eb058bf7787 = $(`<div id="html_68c8acb9c5f6eed393783eb058bf7787" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">忠明</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">52</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_a5ec2a13edca463faf0aa919ac2711d2.setContent(html_68c8acb9c5f6eed393783eb058bf7787);
+            
+        
+
+        circle_marker_c750909aaf303dfc2bfdeb9bbc16beb5.bindPopup(popup_a5ec2a13edca463faf0aa919ac2711d2)
+        ;
+
+        
+    
+    
+            circle_marker_c750909aaf303dfc2bfdeb9bbc16beb5.bindTooltip(
+                `<div>
+                     忠明 - AQI: 52
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_40ea184f3edd90dbc5097147cd247489 = L.circleMarker(
+                [24.162197, 120.616917],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7891285c59b71b4a4058393b07b4618d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4a731042745b6ddebe361328c80ac11f = $(`<div id="html_4a731042745b6ddebe361328c80ac11f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">西屯</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">44</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7891285c59b71b4a4058393b07b4618d.setContent(html_4a731042745b6ddebe361328c80ac11f);
+            
+        
+
+        circle_marker_40ea184f3edd90dbc5097147cd247489.bindPopup(popup_7891285c59b71b4a4058393b07b4618d)
+        ;
+
+        
+    
+    
+            circle_marker_40ea184f3edd90dbc5097147cd247489.bindTooltip(
+                `<div>
+                     西屯 - AQI: 44
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1446a6b9a0a28096d461f2d89ce949b3 = L.circleMarker(
+                [24.066, 120.541519],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_a24a899cd04d528c1c825dfd4cbff323 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a2637b8b22e64bf534a3d756c6708726 = $(`<div id="html_a2637b8b22e64bf534a3d756c6708726" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">彰化</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>彰化縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">55</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_a24a899cd04d528c1c825dfd4cbff323.setContent(html_a2637b8b22e64bf534a3d756c6708726);
+            
+        
+
+        circle_marker_1446a6b9a0a28096d461f2d89ce949b3.bindPopup(popup_a24a899cd04d528c1c825dfd4cbff323)
+        ;
+
+        
+    
+    
+            circle_marker_1446a6b9a0a28096d461f2d89ce949b3.bindTooltip(
+                `<div>
+                     彰化 - AQI: 55
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cecf93840c9837bd0ac101a510ca00b6 = L.circleMarker(
+                [24.131672, 120.469061],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_9bcf5ebbad049c7a687fa8e64623066d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_000815163ed33c00badedc87cfd55ff6 = $(`<div id="html_000815163ed33c00badedc87cfd55ff6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">線西</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>彰化縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">42</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_9bcf5ebbad049c7a687fa8e64623066d.setContent(html_000815163ed33c00badedc87cfd55ff6);
+            
+        
+
+        circle_marker_cecf93840c9837bd0ac101a510ca00b6.bindPopup(popup_9bcf5ebbad049c7a687fa8e64623066d)
+        ;
+
+        
+    
+    
+            circle_marker_cecf93840c9837bd0ac101a510ca00b6.bindTooltip(
+                `<div>
+                     線西 - AQI: 42
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac9ceee9a84ff5907844a47e1b43952a = L.circleMarker(
+                [23.925175, 120.409653],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_178c756fec204ae70fd9c2e21e076c74 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_575450a0f07c996a1f52a94549d8a2a4 = $(`<div id="html_575450a0f07c996a1f52a94549d8a2a4" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">二林</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>彰化縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">96</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_178c756fec204ae70fd9c2e21e076c74.setContent(html_575450a0f07c996a1f52a94549d8a2a4);
+            
+        
+
+        circle_marker_ac9ceee9a84ff5907844a47e1b43952a.bindPopup(popup_178c756fec204ae70fd9c2e21e076c74)
+        ;
+
+        
+    
+    
+            circle_marker_ac9ceee9a84ff5907844a47e1b43952a.bindTooltip(
+                `<div>
+                     二林 - AQI: 96
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_be9b4cbd57015a851c615261f297437a = L.circleMarker(
+                [23.913, 120.685306],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_c70594faf9ac37605ff2f3e8a8419fda = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e099317f23c6393ad8b6afe260db4395 = $(`<div id="html_e099317f23c6393ad8b6afe260db4395" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">南投</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>南投縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">82</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_c70594faf9ac37605ff2f3e8a8419fda.setContent(html_e099317f23c6393ad8b6afe260db4395);
+            
+        
+
+        circle_marker_be9b4cbd57015a851c615261f297437a.bindPopup(popup_c70594faf9ac37605ff2f3e8a8419fda)
+        ;
+
+        
+    
+    
+            circle_marker_be9b4cbd57015a851c615261f297437a.bindTooltip(
+                `<div>
+                     南投 - AQI: 82
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ff5924bcf17cafdf94d7a4619873fa6 = L.circleMarker(
+                [23.711853, 120.544994],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_0a45b5bafdd9f7f4fee93eab89cc7c03 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a0d436e57a617a04004f8c670c72582f = $(`<div id="html_a0d436e57a617a04004f8c670c72582f" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">斗六</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>雲林縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">101</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_0a45b5bafdd9f7f4fee93eab89cc7c03.setContent(html_a0d436e57a617a04004f8c670c72582f);
+            
+        
+
+        circle_marker_8ff5924bcf17cafdf94d7a4619873fa6.bindPopup(popup_0a45b5bafdd9f7f4fee93eab89cc7c03)
+        ;
+
+        
+    
+    
+            circle_marker_8ff5924bcf17cafdf94d7a4619873fa6.bindTooltip(
+                `<div>
+                     斗六 - AQI: 101
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d3e5ef962de39a57b1a9e5577045c4c = L.circleMarker(
+                [23.757547, 120.348742],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b869f424e7813afbbbcdf5d64002409f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_99b37f98bf5963687ac8269148bb3b88 = $(`<div id="html_99b37f98bf5963687ac8269148bb3b88" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">崙背</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>雲林縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">56</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b869f424e7813afbbbcdf5d64002409f.setContent(html_99b37f98bf5963687ac8269148bb3b88);
+            
+        
+
+        circle_marker_4d3e5ef962de39a57b1a9e5577045c4c.bindPopup(popup_b869f424e7813afbbbcdf5d64002409f)
+        ;
+
+        
+    
+    
+            circle_marker_4d3e5ef962de39a57b1a9e5577045c4c.bindTooltip(
+                `<div>
+                     崙背 - AQI: 56
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ac3e021603626e3b8fb1c419c2fada6e = L.circleMarker(
+                [23.554839, 120.345531],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_4400bf5918c039abff2e494ef5001256 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_997be31a499e19a0c9393c68c6530c21 = $(`<div id="html_997be31a499e19a0c9393c68c6530c21" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新港</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>嘉義縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">67</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_4400bf5918c039abff2e494ef5001256.setContent(html_997be31a499e19a0c9393c68c6530c21);
+            
+        
+
+        circle_marker_ac3e021603626e3b8fb1c419c2fada6e.bindPopup(popup_4400bf5918c039abff2e494ef5001256)
+        ;
+
+        
+    
+    
+            circle_marker_ac3e021603626e3b8fb1c419c2fada6e.bindTooltip(
+                `<div>
+                     新港 - AQI: 67
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_879ff4bd5730c9afd8c757b930f75018 = L.circleMarker(
+                [23.46538, 120.2478],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_5cbd0f157e363bd154efddc9fab50472 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5ee0e3d4958eaf1bd23dfe7f775aaceb = $(`<div id="html_5ee0e3d4958eaf1bd23dfe7f775aaceb" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">朴子</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>嘉義縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">58</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_5cbd0f157e363bd154efddc9fab50472.setContent(html_5ee0e3d4958eaf1bd23dfe7f775aaceb);
+            
+        
+
+        circle_marker_879ff4bd5730c9afd8c757b930f75018.bindPopup(popup_5cbd0f157e363bd154efddc9fab50472)
+        ;
+
+        
+    
+    
+            circle_marker_879ff4bd5730c9afd8c757b930f75018.bindTooltip(
+                `<div>
+                     朴子 - AQI: 58
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a41d422397df8d41bee4f70582210c1 = L.circleMarker(
+                [23.702175, 120.19933333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_99072b8db3fa82bb3bdbb82613a5ebd2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9981ca34543a8011fbc5cb84908a515c = $(`<div id="html_9981ca34543a8011fbc5cb84908a515c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">臺西</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>雲林縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">45</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_99072b8db3fa82bb3bdbb82613a5ebd2.setContent(html_9981ca34543a8011fbc5cb84908a515c);
+            
+        
+
+        circle_marker_1a41d422397df8d41bee4f70582210c1.bindPopup(popup_99072b8db3fa82bb3bdbb82613a5ebd2)
+        ;
+
+        
+    
+    
+            circle_marker_1a41d422397df8d41bee4f70582210c1.bindTooltip(
+                `<div>
+                     臺西 - AQI: 45
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5034af4c1bcc94a476de2e227146db2e = L.circleMarker(
+                [23.46477865, 120.44125148],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_ea6d89f510680fa589472e9081f31b03 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_585041d2b138e97e475edd5a002821f7 = $(`<div id="html_585041d2b138e97e475edd5a002821f7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">嘉義</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>嘉義市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">98</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_ea6d89f510680fa589472e9081f31b03.setContent(html_585041d2b138e97e475edd5a002821f7);
+            
+        
+
+        circle_marker_5034af4c1bcc94a476de2e227146db2e.bindPopup(popup_ea6d89f510680fa589472e9081f31b03)
+        ;
+
+        
+    
+    
+            circle_marker_5034af4c1bcc94a476de2e227146db2e.bindTooltip(
+                `<div>
+                     嘉義 - AQI: 98
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cd80073a18ff05b0b5a5cce5aa4ccab3 = L.circleMarker(
+                [23.305633, 120.31725],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_542ff2cbd2410cb663eb5fad2a80cd65 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d9e81dca6e51b61c718dda4e63178cb8 = $(`<div id="html_d9e81dca6e51b61c718dda4e63178cb8" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新營</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺南市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">72</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_542ff2cbd2410cb663eb5fad2a80cd65.setContent(html_d9e81dca6e51b61c718dda4e63178cb8);
+            
+        
+
+        circle_marker_cd80073a18ff05b0b5a5cce5aa4ccab3.bindPopup(popup_542ff2cbd2410cb663eb5fad2a80cd65)
+        ;
+
+        
+    
+    
+            circle_marker_cd80073a18ff05b0b5a5cce5aa4ccab3.bindTooltip(
+                `<div>
+                     新營 - AQI: 72
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3b0c503b5b51255f0327fa90baf5fd2 = L.circleMarker(
+                [23.11337642, 120.29740529],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_409691d38f113c3ac008f7a4ce995d6d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7c34d702904dc866f9603cee2c23139b = $(`<div id="html_7c34d702904dc866f9603cee2c23139b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">善化</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺南市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">90</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_409691d38f113c3ac008f7a4ce995d6d.setContent(html_7c34d702904dc866f9603cee2c23139b);
+            
+        
+
+        circle_marker_e3b0c503b5b51255f0327fa90baf5fd2.bindPopup(popup_409691d38f113c3ac008f7a4ce995d6d)
+        ;
+
+        
+    
+    
+            circle_marker_e3b0c503b5b51255f0327fa90baf5fd2.bindTooltip(
+                `<div>
+                     善化 - AQI: 90
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b392b1db1157f88b0d1a0fb1b1fba03 = L.circleMarker(
+                [23.048197, 120.2175],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_5eae959b2cd6815f79b6c0701c82a21d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_e5f1d4a23d721d4ae7460c8958dc7f53 = $(`<div id="html_e5f1d4a23d721d4ae7460c8958dc7f53" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">安南</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺南市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">96</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_5eae959b2cd6815f79b6c0701c82a21d.setContent(html_e5f1d4a23d721d4ae7460c8958dc7f53);
+            
+        
+
+        circle_marker_7b392b1db1157f88b0d1a0fb1b1fba03.bindPopup(popup_5eae959b2cd6815f79b6c0701c82a21d)
+        ;
+
+        
+    
+    
+            circle_marker_7b392b1db1157f88b0d1a0fb1b1fba03.bindTooltip(
+                `<div>
+                     安南 - AQI: 96
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_261914a3cd93d6e465b8e9dcd790f2c3 = L.circleMarker(
+                [22.98928311, 120.21947897],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_345a6c447c1cda6a5080156c2274c5e7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_819549d24371727595abb8d10e780dc5 = $(`<div id="html_819549d24371727595abb8d10e780dc5" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">臺南</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺南市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">86</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_345a6c447c1cda6a5080156c2274c5e7.setContent(html_819549d24371727595abb8d10e780dc5);
+            
+        
+
+        circle_marker_261914a3cd93d6e465b8e9dcd790f2c3.bindPopup(popup_345a6c447c1cda6a5080156c2274c5e7)
+        ;
+
+        
+    
+    
+            circle_marker_261914a3cd93d6e465b8e9dcd790f2c3.bindTooltip(
+                `<div>
+                     臺南 - AQI: 86
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d7878b58b2be16cf728eaedbad0dfb7a = L.circleMarker(
+                [22.883583, 120.530542],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_9df7fc72cd7de7d44e00d65d67af22ad = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4efd93badf3a8363922ac1f1780874d6 = $(`<div id="html_4efd93badf3a8363922ac1f1780874d6" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">美濃</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">92</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_9df7fc72cd7de7d44e00d65d67af22ad.setContent(html_4efd93badf3a8363922ac1f1780874d6);
+            
+        
+
+        circle_marker_d7878b58b2be16cf728eaedbad0dfb7a.bindPopup(popup_9df7fc72cd7de7d44e00d65d67af22ad)
+        ;
+
+        
+    
+    
+            circle_marker_d7878b58b2be16cf728eaedbad0dfb7a.bindTooltip(
+                `<div>
+                     美濃 - AQI: 92
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3df476652bf8f3924a3e6d506898f5d6 = L.circleMarker(
+                [22.757506, 120.305689],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_46f86b3d8f8226647f0bf44b68528278 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_87d86e82cc082675315b27f8e95cb3fc = $(`<div id="html_87d86e82cc082675315b27f8e95cb3fc" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">橋頭</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">122</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_46f86b3d8f8226647f0bf44b68528278.setContent(html_87d86e82cc082675315b27f8e95cb3fc);
+            
+        
+
+        circle_marker_3df476652bf8f3924a3e6d506898f5d6.bindPopup(popup_46f86b3d8f8226647f0bf44b68528278)
+        ;
+
+        
+    
+    
+            circle_marker_3df476652bf8f3924a3e6d506898f5d6.bindTooltip(
+                `<div>
+                     橋頭 - AQI: 122
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c07818701d1864a6bdf85b0435822739 = L.circleMarker(
+                [22.689056, 120.332631],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_f4d193e2500e16dcf147437169453747 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b7a2a81767c382588be7b28bef755fd0 = $(`<div id="html_b7a2a81767c382588be7b28bef755fd0" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">仁武</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">122</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_f4d193e2500e16dcf147437169453747.setContent(html_b7a2a81767c382588be7b28bef755fd0);
+            
+        
+
+        circle_marker_c07818701d1864a6bdf85b0435822739.bindPopup(popup_f4d193e2500e16dcf147437169453747)
+        ;
+
+        
+    
+    
+            circle_marker_c07818701d1864a6bdf85b0435822739.bindTooltip(
+                `<div>
+                     仁武 - AQI: 122
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5541c3a7bf967971954c6db9faacd06e = L.circleMarker(
+                [22.628126, 120.357422],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_6cf5f3a579aa59f5c972de11b22979ef = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_27a2e12f9fb8f34bb9c83d44fedc30a9 = $(`<div id="html_27a2e12f9fb8f34bb9c83d44fedc30a9" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">鳳山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">118</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_6cf5f3a579aa59f5c972de11b22979ef.setContent(html_27a2e12f9fb8f34bb9c83d44fedc30a9);
+            
+        
+
+        circle_marker_5541c3a7bf967971954c6db9faacd06e.bindPopup(popup_6cf5f3a579aa59f5c972de11b22979ef)
+        ;
+
+        
+    
+    
+            circle_marker_5541c3a7bf967971954c6db9faacd06e.bindTooltip(
+                `<div>
+                     鳳山 - AQI: 118
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a9ca6c364c18f6f39f6941515b46837a = L.circleMarker(
+                [22.56413611, 120.425311],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b0977596b4a2c536e7f214cfc1a54445 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a3850c367d7654de64b2467a9ef1c354 = $(`<div id="html_a3850c367d7654de64b2467a9ef1c354" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">大寮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">111</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b0977596b4a2c536e7f214cfc1a54445.setContent(html_a3850c367d7654de64b2467a9ef1c354);
+            
+        
+
+        circle_marker_a9ca6c364c18f6f39f6941515b46837a.bindPopup(popup_b0977596b4a2c536e7f214cfc1a54445)
+        ;
+
+        
+    
+    
+            circle_marker_a9ca6c364c18f6f39f6941515b46837a.bindTooltip(
+                `<div>
+                     大寮 - AQI: 111
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5086c6234043cbbe07d7a16d83207746 = L.circleMarker(
+                [22.4795, 120.41175],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_987f970a916141f0b50e275de39c4b83 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b587e3253d1f242d6e7288b8942fb20c = $(`<div id="html_b587e3253d1f242d6e7288b8942fb20c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">林園</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">121</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_987f970a916141f0b50e275de39c4b83.setContent(html_b587e3253d1f242d6e7288b8942fb20c);
+            
+        
+
+        circle_marker_5086c6234043cbbe07d7a16d83207746.bindPopup(popup_987f970a916141f0b50e275de39c4b83)
+        ;
+
+        
+    
+    
+            circle_marker_5086c6234043cbbe07d7a16d83207746.bindTooltip(
+                `<div>
+                     林園 - AQI: 121
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2987cab63bfab4449d63340639c29815 = L.circleMarker(
+                [22.733667, 120.328289],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_2ae7e66b2d0c1fd8dae9d19546939b28 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6c3afc237fa2c96909676e6df86fb6f8 = $(`<div id="html_6c3afc237fa2c96909676e6df86fb6f8" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">楠梓</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">116</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_2ae7e66b2d0c1fd8dae9d19546939b28.setContent(html_6c3afc237fa2c96909676e6df86fb6f8);
+            
+        
+
+        circle_marker_2987cab63bfab4449d63340639c29815.bindPopup(popup_2ae7e66b2d0c1fd8dae9d19546939b28)
+        ;
+
+        
+    
+    
+            circle_marker_2987cab63bfab4449d63340639c29815.bindTooltip(
+                `<div>
+                     楠梓 - AQI: 116
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3eda71658ec3c98e67668004cbb8765e = L.circleMarker(
+                [22.674861, 120.292917],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_218433587e058c04ed3fcc7f67da51d5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_26053b090f5632ecfb92b60ebe2240ad = $(`<div id="html_26053b090f5632ecfb92b60ebe2240ad" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">左營</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">112</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_218433587e058c04ed3fcc7f67da51d5.setContent(html_26053b090f5632ecfb92b60ebe2240ad);
+            
+        
+
+        circle_marker_3eda71658ec3c98e67668004cbb8765e.bindPopup(popup_218433587e058c04ed3fcc7f67da51d5)
+        ;
+
+        
+    
+    
+            circle_marker_3eda71658ec3c98e67668004cbb8765e.bindTooltip(
+                `<div>
+                     左營 - AQI: 112
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e253fe8c79a5fc09717538e9463824cd = L.circleMarker(
+                [22.63390278, 120.28676111],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_81c1fc99b48cd85f6172adc2415011d2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_54ce9ccbdafe55832d7521e6f2e3a7f7 = $(`<div id="html_54ce9ccbdafe55832d7521e6f2e3a7f7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">前金</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">113</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_81c1fc99b48cd85f6172adc2415011d2.setContent(html_54ce9ccbdafe55832d7521e6f2e3a7f7);
+            
+        
+
+        circle_marker_e253fe8c79a5fc09717538e9463824cd.bindPopup(popup_81c1fc99b48cd85f6172adc2415011d2)
+        ;
+
+        
+    
+    
+            circle_marker_e253fe8c79a5fc09717538e9463824cd.bindTooltip(
+                `<div>
+                     前金 - AQI: 113
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f7b5e47ea59c7d50f3a670ffa58c70c9 = L.circleMarker(
+                [22.6044507, 120.30833356],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_aa1981c6c94a8fa9e54dbf1ced7c7608 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fba06430edecc5e2c04cb7d74ee69048 = $(`<div id="html_fba06430edecc5e2c04cb7d74ee69048" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">前鎮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">116</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_aa1981c6c94a8fa9e54dbf1ced7c7608.setContent(html_fba06430edecc5e2c04cb7d74ee69048);
+            
+        
+
+        circle_marker_f7b5e47ea59c7d50f3a670ffa58c70c9.bindPopup(popup_aa1981c6c94a8fa9e54dbf1ced7c7608)
+        ;
+
+        
+    
+    
+            circle_marker_f7b5e47ea59c7d50f3a670ffa58c70c9.bindTooltip(
+                `<div>
+                     前鎮 - AQI: 116
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98e5e45d4b796dc5287a9e4b00beac9a = L.circleMarker(
+                [22.565833, 120.337736],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_885e522f3f271206212b230d4e6e5658 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_04f71260f5e95f510f0366e7f7e9218c = $(`<div id="html_04f71260f5e95f510f0366e7f7e9218c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">小港</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">121</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_885e522f3f271206212b230d4e6e5658.setContent(html_04f71260f5e95f510f0366e7f7e9218c);
+            
+        
+
+        circle_marker_98e5e45d4b796dc5287a9e4b00beac9a.bindPopup(popup_885e522f3f271206212b230d4e6e5658)
+        ;
+
+        
+    
+    
+            circle_marker_98e5e45d4b796dc5287a9e4b00beac9a.bindTooltip(
+                `<div>
+                     小港 - AQI: 121
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15c49229417e682f513cf84ac7e84af1 = L.circleMarker(
+                [22.673081, 120.488033],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_02760756dd1b9dd2ba4bd23ee29bfef9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_053a52fd037093c80d93e7c6cd7c4655 = $(`<div id="html_053a52fd037093c80d93e7c6cd7c4655" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">屏東</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>屏東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">107</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_02760756dd1b9dd2ba4bd23ee29bfef9.setContent(html_053a52fd037093c80d93e7c6cd7c4655);
+            
+        
+
+        circle_marker_15c49229417e682f513cf84ac7e84af1.bindPopup(popup_02760756dd1b9dd2ba4bd23ee29bfef9)
+        ;
+
+        
+    
+    
+            circle_marker_15c49229417e682f513cf84ac7e84af1.bindTooltip(
+                `<div>
+                     屏東 - AQI: 107
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3084994a88231b65dc99b54f25a1f659 = L.circleMarker(
+                [22.523108, 120.561175],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_198e44693bc353f0f5208594e4dc070c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_92581f03a0f2ec9c14ad8798b7167801 = $(`<div id="html_92581f03a0f2ec9c14ad8798b7167801" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">潮州</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>屏東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">116</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_198e44693bc353f0f5208594e4dc070c.setContent(html_92581f03a0f2ec9c14ad8798b7167801);
+            
+        
+
+        circle_marker_3084994a88231b65dc99b54f25a1f659.bindPopup(popup_198e44693bc353f0f5208594e4dc070c)
+        ;
+
+        
+    
+    
+            circle_marker_3084994a88231b65dc99b54f25a1f659.bindTooltip(
+                `<div>
+                     潮州 - AQI: 116
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f09ceddd7ce4d2036ac7c7728f205063 = L.circleMarker(
+                [21.958069, 120.788928],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b0beadaef790f2c34c8fbcae0ca51681 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_29cd5a74cbb7fdfd687df7299cababbc = $(`<div id="html_29cd5a74cbb7fdfd687df7299cababbc" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">恆春</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>屏東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">27</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b0beadaef790f2c34c8fbcae0ca51681.setContent(html_29cd5a74cbb7fdfd687df7299cababbc);
+            
+        
+
+        circle_marker_f09ceddd7ce4d2036ac7c7728f205063.bindPopup(popup_b0beadaef790f2c34c8fbcae0ca51681)
+        ;
+
+        
+    
+    
+            circle_marker_f09ceddd7ce4d2036ac7c7728f205063.bindTooltip(
+                `<div>
+                     恆春 - AQI: 27
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b547c0be19c1f6ca2d91269c1e8aa639 = L.circleMarker(
+                [22.755358, 121.15045],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7d602557360059785d523602478a62f5 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bd47405ef8a66ffca89df8339c9a6e76 = $(`<div id="html_bd47405ef8a66ffca89df8339c9a6e76" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">臺東</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">32</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7d602557360059785d523602478a62f5.setContent(html_bd47405ef8a66ffca89df8339c9a6e76);
+            
+        
+
+        circle_marker_b547c0be19c1f6ca2d91269c1e8aa639.bindPopup(popup_7d602557360059785d523602478a62f5)
+        ;
+
+        
+    
+    
+            circle_marker_b547c0be19c1f6ca2d91269c1e8aa639.bindTooltip(
+                `<div>
+                     臺東 - AQI: 32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a8ef2b2b23957bcc8501da67c0d5dfe = L.circleMarker(
+                [23.971306, 121.599769],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_f2104924d638e3b07a1fc592fa1cbc0a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c1f829cd4b1b317be1817d5872a79011 = $(`<div id="html_c1f829cd4b1b317be1817d5872a79011" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">花蓮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>花蓮縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_f2104924d638e3b07a1fc592fa1cbc0a.setContent(html_c1f829cd4b1b317be1817d5872a79011);
+            
+        
+
+        circle_marker_0a8ef2b2b23957bcc8501da67c0d5dfe.bindPopup(popup_f2104924d638e3b07a1fc592fa1cbc0a)
+        ;
+
+        
+    
+    
+            circle_marker_0a8ef2b2b23957bcc8501da67c0d5dfe.bindTooltip(
+                `<div>
+                     花蓮 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_257aca203e310c9faaf851198edb5117 = L.circleMarker(
+                [25.182722, 121.529583],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_cacce26423190bffb9feac5f249b1344 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_98caf10f109225a67eb0310ccedb6829 = $(`<div id="html_98caf10f109225a67eb0310ccedb6829" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">陽明</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">38</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_cacce26423190bffb9feac5f249b1344.setContent(html_98caf10f109225a67eb0310ccedb6829);
+            
+        
+
+        circle_marker_257aca203e310c9faaf851198edb5117.bindPopup(popup_cacce26423190bffb9feac5f249b1344)
+        ;
+
+        
+    
+    
+            circle_marker_257aca203e310c9faaf851198edb5117.bindTooltip(
+                `<div>
+                     陽明 - AQI: 38
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4d5eec5f386cb9d7dd16c575abb1307 = L.circleMarker(
+                [24.747917, 121.746394],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_88b30e7a57a38856399acf678cf58972 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0ffe2c0c34f8bf2c0d4ba6150e7e46e2 = $(`<div id="html_0ffe2c0c34f8bf2c0d4ba6150e7e46e2" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">宜蘭</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>宜蘭縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_88b30e7a57a38856399acf678cf58972.setContent(html_0ffe2c0c34f8bf2c0d4ba6150e7e46e2);
+            
+        
+
+        circle_marker_d4d5eec5f386cb9d7dd16c575abb1307.bindPopup(popup_88b30e7a57a38856399acf678cf58972)
+        ;
+
+        
+    
+    
+            circle_marker_d4d5eec5f386cb9d7dd16c575abb1307.bindTooltip(
+                `<div>
+                     宜蘭 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e030c835673d2758334855b08cf3cf13 = L.circleMarker(
+                [24.632203, 121.792928],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_2704e55acfaa1cbd6f2fc2d30d651756 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_39c64d43f46bc32de255de548314e526 = $(`<div id="html_39c64d43f46bc32de255de548314e526" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">冬山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>宜蘭縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_2704e55acfaa1cbd6f2fc2d30d651756.setContent(html_39c64d43f46bc32de255de548314e526);
+            
+        
+
+        circle_marker_e030c835673d2758334855b08cf3cf13.bindPopup(popup_2704e55acfaa1cbd6f2fc2d30d651756)
+        ;
+
+        
+    
+    
+            circle_marker_e030c835673d2758334855b08cf3cf13.bindTooltip(
+                `<div>
+                     冬山 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dc65d4fd9d9f0c80ba8f68a367860ff1 = L.circleMarker(
+                [25.072611, 121.493806],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_07dfe80be06a9967e3b4b65d35ef3a2f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_4619fc4ca0888556a96f12994334e86d = $(`<div id="html_4619fc4ca0888556a96f12994334e86d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">三重</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">55</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>二氧化氮</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_07dfe80be06a9967e3b4b65d35ef3a2f.setContent(html_4619fc4ca0888556a96f12994334e86d);
+            
+        
+
+        circle_marker_dc65d4fd9d9f0c80ba8f68a367860ff1.bindPopup(popup_07dfe80be06a9967e3b4b65d35ef3a2f)
+        ;
+
+        
+    
+    
+            circle_marker_dc65d4fd9d9f0c80ba8f68a367860ff1.bindTooltip(
+                `<div>
+                     三重 - AQI: 55
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a605d3494a97a61d9884c2523a63f77d = L.circleMarker(
+                [24.953278, 121.221667],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_aaadc6fae849ca80d1c4516a6868754a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_524867aa78c6015bdf88c23cde949cc8 = $(`<div id="html_524867aa78c6015bdf88c23cde949cc8" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">中壢</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>桃園市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">48</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_aaadc6fae849ca80d1c4516a6868754a.setContent(html_524867aa78c6015bdf88c23cde949cc8);
+            
+        
+
+        circle_marker_a605d3494a97a61d9884c2523a63f77d.bindPopup(popup_aaadc6fae849ca80d1c4516a6868754a)
+        ;
+
+        
+    
+    
+            circle_marker_a605d3494a97a61d9884c2523a63f77d.bindTooltip(
+                `<div>
+                     中壢 - AQI: 48
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1e9d4a5bc85e5904cea76aec705880c = L.circleMarker(
+                [23.756389, 120.677306],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7ef2a4e9fdf4af48a9ed570badda2b25 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17d7a457bb167ad2d67cd1f29abfef33 = $(`<div id="html_17d7a457bb167ad2d67cd1f29abfef33" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">竹山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>南投縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">93</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7ef2a4e9fdf4af48a9ed570badda2b25.setContent(html_17d7a457bb167ad2d67cd1f29abfef33);
+            
+        
+
+        circle_marker_a1e9d4a5bc85e5904cea76aec705880c.bindPopup(popup_7ef2a4e9fdf4af48a9ed570badda2b25)
+        ;
+
+        
+    
+    
+            circle_marker_a1e9d4a5bc85e5904cea76aec705880c.bindTooltip(
+                `<div>
+                     竹山 - AQI: 93
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dfc89c858e808bdbb58bf7b998cc2f3b = L.circleMarker(
+                [25.017, 121.516306],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_988e097ef958b8a55368a462bd2007c7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_13c15d33bf436d82eb6e66987b93d456 = $(`<div id="html_13c15d33bf436d82eb6e66987b93d456" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">永和</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_988e097ef958b8a55368a462bd2007c7.setContent(html_13c15d33bf436d82eb6e66987b93d456);
+            
+        
+
+        circle_marker_dfc89c858e808bdbb58bf7b998cc2f3b.bindPopup(popup_988e097ef958b8a55368a462bd2007c7)
+        ;
+
+        
+    
+    
+            circle_marker_dfc89c858e808bdbb58bf7b998cc2f3b.bindTooltip(
+                `<div>
+                     永和 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e776707a27fc35957ce1c487ed4e0e3 = L.circleMarker(
+                [22.608711, 120.312017],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_15e5bd4ae9b0a718f32c3b4ad68f02f9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f98046b345515ee240531de831ac98e7 = $(`<div id="html_f98046b345515ee240531de831ac98e7" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">復興</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>高雄市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">118</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_15e5bd4ae9b0a718f32c3b4ad68f02f9.setContent(html_f98046b345515ee240531de831ac98e7);
+            
+        
+
+        circle_marker_8e776707a27fc35957ce1c487ed4e0e3.bindPopup(popup_15e5bd4ae9b0a718f32c3b4ad68f02f9)
+        ;
+
+        
+    
+    
+            circle_marker_8e776707a27fc35957ce1c487ed4e0e3.bindTooltip(
+                `<div>
+                     復興 - AQI: 118
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b5b956f3c6e60d0097b8863d97fb309 = L.circleMarker(
+                [23.968842, 120.967903],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_560c0966f8f8e5d8a8a6b7454c30befe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_5e58998c4318adb0ffbc48f84638435b = $(`<div id="html_5e58998c4318adb0ffbc48f84638435b" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">埔里</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>南投縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">88</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_560c0966f8f8e5d8a8a6b7454c30befe.setContent(html_5e58998c4318adb0ffbc48f84638435b);
+            
+        
+
+        circle_marker_0b5b956f3c6e60d0097b8863d97fb309.bindPopup(popup_560c0966f8f8e5d8a8a6b7454c30befe)
+        ;
+
+        
+    
+    
+            circle_marker_0b5b956f3c6e60d0097b8863d97fb309.bindTooltip(
+                `<div>
+                     埔里 - AQI: 88
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_62c3ed0114e7c664c3423730dfee6f09 = L.circleMarker(
+                [26.153736, 119.952724],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_18042e05c5d8b0e1b79c67546bacfe5d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f9d65cecc9d5e5c78f879e702c47cda3 = $(`<div id="html_f9d65cecc9d5e5c78f879e702c47cda3" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">馬祖</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>連江縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">43</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_18042e05c5d8b0e1b79c67546bacfe5d.setContent(html_f9d65cecc9d5e5c78f879e702c47cda3);
+            
+        
+
+        circle_marker_62c3ed0114e7c664c3423730dfee6f09.bindPopup(popup_18042e05c5d8b0e1b79c67546bacfe5d)
+        ;
+
+        
+    
+    
+            circle_marker_62c3ed0114e7c664c3423730dfee6f09.bindTooltip(
+                `<div>
+                     馬祖 - AQI: 43
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fe30ba65a42e78d930901f3dc44f1495 = L.circleMarker(
+                [24.432133, 118.312256],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7f8a3288584fc36d2fb4d7ce22c1fc02 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3da078c579c63e281784f73d6a909da9 = $(`<div id="html_3da078c579c63e281784f73d6a909da9" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">金門</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>金門縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">80</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7f8a3288584fc36d2fb4d7ce22c1fc02.setContent(html_3da078c579c63e281784f73d6a909da9);
+            
+        
+
+        circle_marker_fe30ba65a42e78d930901f3dc44f1495.bindPopup(popup_7f8a3288584fc36d2fb4d7ce22c1fc02)
+        ;
+
+        
+    
+    
+            circle_marker_fe30ba65a42e78d930901f3dc44f1495.bindTooltip(
+                `<div>
+                     金門 - AQI: 80
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d0530a2b3e4448e09e5646a8356490e0 = L.circleMarker(
+                [23.569031, 119.566158],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_ca563e62b03ce05a622d76f3cf4425b4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7174dc8857d6e6091003ceaede776779 = $(`<div id="html_7174dc8857d6e6091003ceaede776779" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">馬公</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>澎湖縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_ca563e62b03ce05a622d76f3cf4425b4.setContent(html_7174dc8857d6e6091003ceaede776779);
+            
+        
+
+        circle_marker_d0530a2b3e4448e09e5646a8356490e0.bindPopup(popup_ca563e62b03ce05a622d76f3cf4425b4)
+        ;
+
+        
+    
+    
+            circle_marker_d0530a2b3e4448e09e5646a8356490e0.bindTooltip(
+                `<div>
+                     馬公 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1475157a0c87046221ca9213aecd1cba = L.circleMarker(
+                [23.045083, 121.161933],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_5397b92e6bb2f1c0f91745fb6a3950fa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d22c8697c33ab2fd20c549c52b42fc19 = $(`<div id="html_d22c8697c33ab2fd20c549c52b42fc19" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">關山</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">31</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_5397b92e6bb2f1c0f91745fb6a3950fa.setContent(html_d22c8697c33ab2fd20c549c52b42fc19);
+            
+        
+
+        circle_marker_1475157a0c87046221ca9213aecd1cba.bindPopup(popup_5397b92e6bb2f1c0f91745fb6a3950fa)
+        ;
+
+        
+    
+    
+            circle_marker_1475157a0c87046221ca9213aecd1cba.bindTooltip(
+                `<div>
+                     關山 - AQI: 31
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25119b67bac4cdbd4f70100ac3bba3e9 = L.circleMarker(
+                [23.753506, 120.251825],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_5e826c84e5b204417cfa8839c7f6cfcb = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_14b9e6a5658f561521c14a37a985841e = $(`<div id="html_14b9e6a5658f561521c14a37a985841e" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">麥寮</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>雲林縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">47</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_5e826c84e5b204417cfa8839c7f6cfcb.setContent(html_14b9e6a5658f561521c14a37a985841e);
+            
+        
+
+        circle_marker_25119b67bac4cdbd4f70100ac3bba3e9.bindPopup(popup_5e826c84e5b204417cfa8839c7f6cfcb)
+        ;
+
+        
+    
+    
+            circle_marker_25119b67bac4cdbd4f70100ac3bba3e9.bindTooltip(
+                `<div>
+                     麥寮 - AQI: 47
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba43fb5bc14ef4c1a7a7cf7b0a13bdb6 = L.circleMarker(
+                [25.29681695, 121.53656894],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7e45d240345a1713d053125ea9d69f65 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_16697ca2d2200656e86c38d954799bce = $(`<div id="html_16697ca2d2200656e86c38d954799bce" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">富貴角</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">43</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7e45d240345a1713d053125ea9d69f65.setContent(html_16697ca2d2200656e86c38d954799bce);
+            
+        
+
+        circle_marker_ba43fb5bc14ef4c1a7a7cf7b0a13bdb6.bindPopup(popup_7e45d240345a1713d053125ea9d69f65)
+        ;
+
+        
+    
+    
+            circle_marker_ba43fb5bc14ef4c1a7a7cf7b0a13bdb6.bindTooltip(
+                `<div>
+                     富貴角 - AQI: 43
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_292ade64a00ad5fcf877d76f59f56b76 = L.circleMarker(
+                [23.85493056, 120.26964167],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_6973211d625c7cb5a9e6f17edd9801c7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_41d2e08e86dbbbb9c2c48008458f8177 = $(`<div id="html_41d2e08e86dbbbb9c2c48008458f8177" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">大城</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>彰化縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">33</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_6973211d625c7cb5a9e6f17edd9801c7.setContent(html_41d2e08e86dbbbb9c2c48008458f8177);
+            
+        
+
+        circle_marker_292ade64a00ad5fcf877d76f59f56b76.bindPopup(popup_6973211d625c7cb5a9e6f17edd9801c7)
+        ;
+
+        
+    
+    
+            circle_marker_292ade64a00ad5fcf877d76f59f56b76.bindTooltip(
+                `<div>
+                     大城 - AQI: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d4e4b248a80b4acb95e862b178926af2 = L.circleMarker(
+                [24.1589, 120.6567111],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_c7d6b5803a6f2ade268003be60a364a6 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_13e6500b2c2e50f3bb0ea59c135b816c = $(`<div id="html_13e6500b2c2e50f3bb0ea59c135b816c" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">臺灣大道</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺中市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">60</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_c7d6b5803a6f2ade268003be60a364a6.setContent(html_13e6500b2c2e50f3bb0ea59c135b816c);
+            
+        
+
+        circle_marker_d4e4b248a80b4acb95e862b178926af2.bindPopup(popup_c7d6b5803a6f2ade268003be60a364a6)
+        ;
+
+        
+    
+    
+            circle_marker_d4e4b248a80b4acb95e862b178926af2.bindTooltip(
+                `<div>
+                     臺灣大道 - AQI: 60
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fdf8007ef45ed0cb4c4a6e93fcfbe50c = L.circleMarker(
+                [23.9615945, 120.5631893],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_b9233a3a2a394b673607192d90b62ae8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_07b1e72673cdaed31606614e2fee8b92 = $(`<div id="html_07b1e72673cdaed31606614e2fee8b92" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">員林</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>彰化縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">68</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_b9233a3a2a394b673607192d90b62ae8.setContent(html_07b1e72673cdaed31606614e2fee8b92);
+            
+        
+
+        circle_marker_fdf8007ef45ed0cb4c4a6e93fcfbe50c.bindPopup(popup_b9233a3a2a394b673607192d90b62ae8)
+        ;
+
+        
+    
+    
+            circle_marker_fdf8007ef45ed0cb4c4a6e93fcfbe50c.bindTooltip(
+                `<div>
+                     員林 - AQI: 68
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f56dd23576d487e5b3e24d465373f3cc = L.circleMarker(
+                [22.98522502, 120.22216042],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_86d39257f00f7b59de25201cbba73d40 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7c5512b1ec857c7726058c4c2dc908e2 = $(`<div id="html_7c5512b1ec857c7726058c4c2dc908e2" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">林森</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>臺南市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">98</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_86d39257f00f7b59de25201cbba73d40.setContent(html_7c5512b1ec857c7726058c4c2dc908e2);
+            
+        
+
+        circle_marker_f56dd23576d487e5b3e24d465373f3cc.bindPopup(popup_86d39257f00f7b59de25201cbba73d40)
+        ;
+
+        
+    
+    
+            circle_marker_f56dd23576d487e5b3e24d465373f3cc.bindTooltip(
+                `<div>
+                     林森 - AQI: 98
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f297cfd18ae2d90e65d8b2b6f3bd683c = L.circleMarker(
+                [23.71867609, 120.7944772],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_71e3f9dcdf9d158ee3a72fbb35a2265d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d639fc53dd8b4e00846c39483cac5523 = $(`<div id="html_d639fc53dd8b4e00846c39483cac5523" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">南投（鹿谷）</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>南投縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">75</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_71e3f9dcdf9d158ee3a72fbb35a2265d.setContent(html_d639fc53dd8b4e00846c39483cac5523);
+            
+        
+
+        circle_marker_f297cfd18ae2d90e65d8b2b6f3bd683c.bindPopup(popup_71e3f9dcdf9d158ee3a72fbb35a2265d)
+        ;
+
+        
+    
+    
+            circle_marker_f297cfd18ae2d90e65d8b2b6f3bd683c.bindTooltip(
+                `<div>
+                     南投（鹿谷） - AQI: 75
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_92a0f6b1671b90b364a81fe3a1fc7a9a = L.circleMarker(
+                [22.35222, 120.37722],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_df1cc4b2d79f1b6644e77c6f6180ed78 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_c43d37efd7c7a47697a8e775d306229d = $(`<div id="html_c43d37efd7c7a47697a8e775d306229d" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">屏東（琉球）</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>屏東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: red;">117</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>對敏感族群不健康</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_df1cc4b2d79f1b6644e77c6f6180ed78.setContent(html_c43d37efd7c7a47697a8e775d306229d);
+            
+        
+
+        circle_marker_92a0f6b1671b90b364a81fe3a1fc7a9a.bindPopup(popup_df1cc4b2d79f1b6644e77c6f6180ed78)
+        ;
+
+        
+    
+    
+            circle_marker_92a0f6b1671b90b364a81fe3a1fc7a9a.bindTooltip(
+                `<div>
+                     屏東（琉球） - AQI: 117
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9da650856a18bcc9bdaeabb5811ce2f = L.circleMarker(
+                [24.94902778, 121.38352778],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_bdf3f461e656cc4c87dbccca7de3b2aa = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_88fb9f621e50c8de6eb820a3caa54da4 = $(`<div id="html_88fb9f621e50c8de6eb820a3caa54da4" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">新北（樹林）</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>新北市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: green;">47</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b></p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>良好</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_bdf3f461e656cc4c87dbccca7de3b2aa.setContent(html_88fb9f621e50c8de6eb820a3caa54da4);
+            
+        
+
+        circle_marker_b9da650856a18bcc9bdaeabb5811ce2f.bindPopup(popup_bdf3f461e656cc4c87dbccca7de3b2aa)
+        ;
+
+        
+    
+    
+            circle_marker_b9da650856a18bcc9bdaeabb5811ce2f.bindTooltip(
+                `<div>
+                     新北（樹林） - AQI: 47
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc3e000c7ec515bbdfc3498c48dc9fd4 = L.circleMarker(
+                [22.260899, 120.651472],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_1dc0b46e07c719a9e9fb5d4e55e48282 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_707fe542f3542bce3bd937b3de3859d1 = $(`<div id="html_707fe542f3542bce3bd937b3de3859d1" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">屏東（枋山）</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>屏東縣</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">59</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_1dc0b46e07c719a9e9fb5d4e55e48282.setContent(html_707fe542f3542bce3bd937b3de3859d1);
+            
+        
+
+        circle_marker_bc3e000c7ec515bbdfc3498c48dc9fd4.bindPopup(popup_1dc0b46e07c719a9e9fb5d4e55e48282)
+        ;
+
+        
+    
+    
+            circle_marker_bc3e000c7ec515bbdfc3498c48dc9fd4.bindTooltip(
+                `<div>
+                     屏東（枋山） - AQI: 59
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b465b0cedc3f5af0dd57febe7f555789 = L.circleMarker(
+                [23.51301, 120.44452],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12, "stroke": true, "weight": 2}
+            ).addTo(map_a6d73f2d90068cd37fd5e3dd41129963);
+        
+    
+        var popup_7ed57735de5a37020a2964cba3d2d7d7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0c5fe5801f3c866a44fa99ea31958930 = $(`<div id="html_0c5fe5801f3c866a44fa99ea31958930" style="width: 100.0%; height: 100.0%;">                 <div style="font-family: Arial, sans-serif; min-width: 200px;">                     <h4 style="margin: 5px 0; color: #333;">嘉義（東區）</h4>                     <p style="margin: 3px 0;"><b>所在地：</b>嘉義市</p>                     <p style="margin: 3px 0;"><b>即時 AQI：</b><span style="font-size: 16px; font-weight: bold; color: yellow;">84</span></p>                     <p style="margin: 3px 0;"><b>主要污染物：</b>細懸浮微粒</p>                     <p style="margin: 3px 0;"><b>空氣品質：</b>普通</p>                     <p style="margin: 3px 0; font-size: 11px; color: #666;">更新：2026-02-25 11:51</p>                 </div>                 </div>`)[0];
+                popup_7ed57735de5a37020a2964cba3d2d7d7.setContent(html_0c5fe5801f3c866a44fa99ea31958930);
+            
+        
+
+        circle_marker_b465b0cedc3f5af0dd57febe7f555789.bindPopup(popup_7ed57735de5a37020a2964cba3d2d7d7)
+        ;
+
+        
+    
+    
+            circle_marker_b465b0cedc3f5af0dd57febe7f555789.bindTooltip(
+                `<div>
+                     嘉義（東區） - AQI: 84
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
