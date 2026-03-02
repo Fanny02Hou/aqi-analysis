@@ -176,7 +176,7 @@ python scripts/setup.py
 - **作者**: AQI Analysis Team
 - **授權**: MIT License
 
-## 貢貢獻
+## 貢獻
 
 歡迎提交 Issue 和 Pull Request 來改善這個專案！
 
