@@ -58,4 +58,5 @@ def main():
         print("\n環境設定失敗，請檢查錯誤訊息")
 
 if __name__ == "__main__":
+    """直接執行 setup.py 時的獨立運行"""
     main()

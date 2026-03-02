@@ -88,3 +88,54 @@ git push -u origin main
 - 📐 專業 geo_coor 套件 WGS84 → TWD97 轉換
 - 🎯 台灣地區高精度距離計算
 - 🎨 優化分色顯示系統
+- 🔒 完整的 API Key 保護機制
+
+## 🔍 故障排除
+
+### 如果 'origin' 不存在錯誤
+
+**症狀:** `fatal: 'origin' does not appear to be a git repository`
+
+**解決方案:**
+```cmd
+# 檢查遠端設定
+git remote -v
+
+# 如果沒有 origin，重新添加
+git remote remove origin
+git remote add origin https://github.com/YOUR_USERNAME/aqi-analysis.git
+
+# 重新推送
+git push -u origin main
+```
+
+### 如果推送失敗
+
+**症狀:** 推送時出現權限錯誤
+
+**解決方案:**
+1. 確認 GitHub 使用者名稱正確
+2. 檢查倉庫是否已存在
+3. 重新登入 GitHub CLI: `gh auth login --web`
+
+### 如果倉庫已存在
+
+**症狀:** `Repository already exists`
+
+**解決方案:**
+```cmd
+# 直接推送到現有倉庫
+git remote add origin https://github.com/YOUR_USERNAME/aqi-analysis.git
+git push -u origin main
+```
+
+## 📊 專案統計
+
+**推送成功後，您的 GitHub 倉庫將包含：**
+- 📁 4 個核心檔案 (main.py + scripts/)
+- 📄 4 個文檔檔案 (.md)
+- 📋 1 個設定檔案 (requirements.txt)
+- 🔒 1 個環境檔案 (.env - 被保護)
+- 📦 1 個忽略規則檔案 (.gitignore)
+
+**總計約 15+ 個檔案，完整呈現您的 AQI 分析系統！**
