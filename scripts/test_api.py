@@ -13,7 +13,7 @@ API_KEY = os.getenv('MOENV_API_KEY')
 def test_apis():
     """測試可用的 API 端點"""
     
-    # 只測試已確認可用的 API
+    # 目前只加入已確認可用的 API
     test_urls = [
         {
             'name': '環境部主要 API (需要 API Key)',

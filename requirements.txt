@@ -3,3 +3,6 @@ folium
 python-dotenv
 pandas
 geo_coor
+pyproj
+geopandas
+shapely
